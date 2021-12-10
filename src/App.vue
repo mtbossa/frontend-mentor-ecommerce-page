@@ -1,26 +1,5 @@
 <template>
-  <header>
-    <img src="../images/logo.svg" alt="Sneakers logo" />
-    <nav>
-      <ul>
-        <li>Collections</li>
-        <li>Men</li>
-        <li>Women</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
-    <button>cesto</button>
-    <div>
-      <p>cesto</p>
-      <div>
-        <img src="" alt="" />
-        <p>Fall Limited Edition Sneakers</p>
-        <p>$125.00 x3 <strong>$375.00</strong></p>
-      </div>
-    </div>
-    <img src="../images/image-avatar.png" alt="" />
-  </header>
+  <AppHeader />
 
   <article>
     <img src="" alt="" />
@@ -58,9 +37,11 @@
 </template>
 
 <script>
+import AppHeader from "@/components/AppHeader";
+
 export default {
   name: "App",
-  components: {},
+  components: { AppHeader },
 };
 </script>
 
@@ -76,6 +57,8 @@ export default {
   --color-black: hsl(0, 0%, 0%);
 
   --font-size: 16px;
+
+  --header-height: 4rem;
 }
 
 html {
@@ -84,6 +67,10 @@ html {
 
 body {
   background-color: var(--color-white);
+}
+
+.container {
+  margin: 0 2rem;
 }
 
 .attribution {
