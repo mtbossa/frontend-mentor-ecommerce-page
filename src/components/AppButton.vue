@@ -1,5 +1,5 @@
 <template>
-  <button class="app-button app-button--orange">
+  <button class="app-button app-button--orange padding-y--small">
     <img
       class="app-button__icon"
       src="@/assets/images/icon-cart.svg"
@@ -25,7 +25,6 @@ export default {};
   max-width: 400px;
   border: none;
   cursor: pointer;
-  padding: 1rem 0;
   font-weight: 700;
   font-size: 1rem;
   font-family: "Kumbh Sans", sans-serif;
