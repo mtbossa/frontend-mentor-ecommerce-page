@@ -23,7 +23,7 @@
           class="nav__menu-container nav__menu-container--full-width"
         >
           <div class="nav__menu-container">
-            <ul class="nav__menu">
+            <ul class="nav__menu" role="list">
               <li class="nav__link">Collections</li>
               <li class="nav__link">Men</li>
               <li class="nav__link">Women</li>
@@ -81,8 +81,13 @@ export default {
   width: 100%;
 }
 
+.nav__container {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .nav__icon-open {
-  margin-right: 10px;
+  margin-top: 0.3rem;
 }
 
 .nav__icon-close {

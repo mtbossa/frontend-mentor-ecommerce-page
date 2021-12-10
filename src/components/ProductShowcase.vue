@@ -32,10 +32,6 @@ export default {};
   position: relative;
 }
 
-.product-showcase__main-image {
-  max-width: 100%;
-}
-
 .product-showcase__icon-previous {
   position: absolute;
   top: 200px;

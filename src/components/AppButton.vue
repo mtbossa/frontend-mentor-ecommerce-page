@@ -27,7 +27,6 @@ export default {};
   cursor: pointer;
   font-weight: 700;
   font-size: 1rem;
-  font-family: "Kumbh Sans", sans-serif;
   border-radius: 10px;
 }
 
