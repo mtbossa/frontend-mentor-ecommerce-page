@@ -1,13 +1,38 @@
 <template>
-  <div class="quantity-input padding-x--small padding-y--small">
-    <img src="@/assets/images/icon-minus.svg" alt="Plus" />
-    <p>0</p>
-    <img src="@/assets/images/icon-plus.svg" alt="Plus" />
+  <div class="quantity-input">
+    <button
+      class="button-icon padding-x--small padding-y--small"
+      @click="removeQuantity"
+    >
+      <img src="@/assets/images/icon-minus.svg" alt="Minus" />
+    </button>
+
+    <p>{{ quantity }}</p>
+    <button
+      class="button-icon padding-x--small padding-y--small"
+      @click="addQuantity"
+    >
+      <img src="@/assets/images/icon-plus.svg" alt="Plus" />
+    </button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      quantity: 0,
+    };
+  },
+  methods: {
+    addQuantity() {
+      this.quantity++;
+    },
+    removeQuantity() {
+      if (this.quantity >= 1) this.quantity--;
+    },
+  },
+};
 </script>
 
 <style scoped>
