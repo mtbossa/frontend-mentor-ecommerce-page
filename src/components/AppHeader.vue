@@ -10,9 +10,9 @@
           <img src="../../images/icon-close.svg" alt="X" />
         </button>
         <button
-          @click="showMenu"
           v-if="!visibleMenu"
           class="nav__open-icon button-icon"
+          @click="showMenu"
         >
           <img src="../../images/icon-menu.svg" alt="" />
         </button>
@@ -109,6 +109,7 @@ export default {
 
 .nav__link {
   font-weight: 700;
+  cursor: pointer;
 }
 
 .nav__user-section {

@@ -1,5 +1,5 @@
 import "../src/styles/reset.css";
-import "../src/styles/helper.css";
+import "../src/styles/utilities.css";
 
 import { createApp } from "vue";
 import App from "./App.vue";
