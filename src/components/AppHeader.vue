@@ -7,16 +7,16 @@
           class="nav__close-icon button-icon"
           @click="showMenu"
         >
-          <img src="../../images/icon-close.svg" alt="X" />
+          <img src="@/assets/images/icon-close.svg" alt="X" />
         </button>
         <button
           v-if="!visibleMenu"
           class="nav__open-icon button-icon"
           @click="showMenu"
         >
-          <img src="../../images/icon-menu.svg" alt="" />
+          <img src="@/assets/images/icon-menu.svg" alt="" />
         </button>
-        <img src="../../images/logo.svg" alt="Sneakers logo" />
+        <img src="@/assets/images/logo.svg" alt="Sneakers logo" />
 
         <div
           v-if="visibleMenu"
@@ -33,10 +33,12 @@
           </div>
         </div>
       </div>
-      <div class="nav__user-section">
-        <button class="nav__cart-icon">cesto</button>
+      <div class="nav__user-container">
+        <button class="nav__cart-icon button-icon">
+          <img src="@/assets/images/icon-cart.svg" alt="Cart" />
+        </button>
         <img
-          src="../../images/image-avatar.png"
+          src="@/assets/images/image-avatar.png"
           alt="User profile photo"
           class="nav__user-photo"
         />
@@ -63,8 +65,8 @@ export default {
 <style scoped>
 .header {
   min-height: var(--header-height);
-  background-color: red;
   display: flex;
+  background-color: gray;
 }
 
 .nav {
@@ -74,10 +76,8 @@ export default {
   width: 100%;
 }
 
-.nav__container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.nav__open-icon {
+  margin-right: 10px;
 }
 
 .nav__close-icon {
@@ -112,7 +112,7 @@ export default {
   cursor: pointer;
 }
 
-.nav__user-section {
+.nav__user-container {
   display: flex;
   align-items: center;
   gap: 1.55rem;
