@@ -6,17 +6,17 @@
       alt=""
     />
 
-    <button
-      class="product-showcase__icon-previous button-icon button-icon--rounded-bg"
-    >
-      <img src="@/assets/images/icon-previous.svg" alt="" />
-    </button>
+    <div class="product-showcase__button product-showcase__button--previous">
+      <button class="button-icon">
+        <img src="@/assets/images/icon-previous.svg" alt="Previous" />
+      </button>
+    </div>
 
-    <button
-      class="product-showcase__icon-next button-icon button-icon--rounded-bg"
-    >
-      <img src="@/assets/images/icon-next.svg" alt="" />
-    </button>
+    <div class="product-showcase__button product-showcase__button--next">
+      <button class="button-icon">
+        <img src="@/assets/images/icon-next.svg" alt="Next" />
+      </button>
+    </div>
 
     <!-- ou div com background image -->
     <div></div>
@@ -32,17 +32,29 @@ export default {};
   position: relative;
 }
 
-.product-showcase__icon-previous {
+.product-showcase__button {
   position: absolute;
   top: 200px;
-  left: 2.4rem;
   z-index: 1;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
 }
 
-.product-showcase__icon-next {
-  position: absolute;
-  top: 200px;
-  right: 2.4rem;
-  z-index: 1;
+.product-showcase__button--previous {
+  left: 1rem;
 }
+
+.product-showcase__button--next {
+  right: 1rem;
+}
+
+.button-icon > img {
+  width: 8px;
+}
+
 </style>
