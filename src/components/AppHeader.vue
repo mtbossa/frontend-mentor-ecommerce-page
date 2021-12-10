@@ -115,6 +115,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding: 0;
 }
 
 .nav__link {
