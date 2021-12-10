@@ -70,7 +70,8 @@ export default {
   width: 100%;
   min-height: var(--header-height);
   display: flex;
-  background-color: gray;
+  background-color: var(--color-white);
+  z-index: 100;
 }
 
 .nav {

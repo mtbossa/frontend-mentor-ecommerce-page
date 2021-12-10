@@ -1,11 +1,7 @@
 <template>
   <AppHeader />
 
-  <article>
-    <img src="" alt="" />
-    <!-- ou div com background image -->
-    <div></div>
-  </article>
+  <ProductShowcase />
 
   <article>
     <h3>Sneaker Company</h3>
@@ -38,10 +34,11 @@
 
 <script>
 import AppHeader from "@/components/AppHeader";
+import ProductShowcase from "@/components/ProductShowcase";
 
 export default {
   name: "App",
-  components: { AppHeader },
+  components: { AppHeader, ProductShowcase },
 };
 </script>
 
@@ -67,6 +64,7 @@ html {
 
 body {
   background-color: var(--color-white);
+  height: 2000px;
 }
 
 .container {
