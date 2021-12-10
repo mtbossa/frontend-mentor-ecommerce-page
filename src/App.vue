@@ -3,25 +3,7 @@
 
   <ProductShowcase />
 
-  <article>
-    <h3>Sneaker Company</h3>
-    <h1>Fall Limited Edition Sneakers</h1>
-    <p>
-      These low-profile sneakers are your perfect casual wear companion.
-      Featuring a durable rubber outer sole, they’ll withstand everything the
-      weather can offer.
-    </p>
-    <div>
-      <h2>$125.00</h2>
-      <div>50%</div>
-      <h4>$250.00</h4>
-    </div>
-
-    <div>
-      <div>0</div>
-      <button>Add to cart</button>
-    </div>
-  </article>
+  <ProductInfo />
 
   <div class="attribution">
     Challenge by
@@ -35,43 +17,31 @@
 <script>
 import AppHeader from "@/components/AppHeader";
 import ProductShowcase from "@/components/ProductShowcase";
+import ProductInfo from "@/components/ProductInfo";
 
 export default {
   name: "App",
-  components: { AppHeader, ProductShowcase },
+  components: { AppHeader, ProductShowcase, ProductInfo },
 };
 </script>
 
 <style>
-:root {
-  --color-primary-orange: hsl(26, 100%, 55%);
-  --color-primary-pale-orange: hsl(25, 100%, 94%);
-  --color-very-dark-blue: hsl(220, 13%, 13%);
-  --color-dark-grayish-blue: hsl(219, 9%, 45%);
-  --color-grayish-blue: hsl(220, 14%, 75%);
-  --color-light-grayish-blue: hsl(223, 64%, 98%);
-  --color-white: hsl(0, 0%, 100%);
-  --color-black: hsl(0, 0%, 0%);
-
-  --font-size: 16px;
-
-  --header-height: 4rem;
-}
-
 html {
   font-family: "Kumbh Sans", sans-serif;
 }
 
 body {
   background-color: var(--color-white);
-  height: 2000px;
+  font-size: var(--font-size);
+  color: var(--color-black);
 }
 
 .container {
-  margin: 0 2rem;
+  margin: 0rem 2rem;
 }
 
 .attribution {
+  margin-top: 5rem;
   font-size: 11px;
   text-align: center;
 }
