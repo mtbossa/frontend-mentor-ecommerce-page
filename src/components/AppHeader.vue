@@ -4,14 +4,14 @@
       <div class="nav__container">
         <button
           v-if="visibleMenu"
-          class="nav__close-icon button-icon"
+          class="nav__icon-close button-icon"
           @click="showMenu"
         >
           <img src="@/assets/images/icon-close.svg" alt="X" />
         </button>
         <button
           v-if="!visibleMenu"
-          class="nav__open-icon button-icon"
+          class="nav__icon-open button-icon"
           @click="showMenu"
         >
           <img src="@/assets/images/icon-menu.svg" alt="" />
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="nav__user-container">
-        <button class="nav__cart-icon button-icon">
+        <button class="nav__icon-cart button-icon">
           <img src="@/assets/images/icon-cart.svg" alt="Cart" />
         </button>
         <img
@@ -80,11 +80,11 @@ export default {
   width: 100%;
 }
 
-.nav__open-icon {
+.nav__icon-open {
   margin-right: 10px;
 }
 
-.nav__close-icon {
+.nav__icon-close {
   position: absolute;
   z-index: 100;
 }
