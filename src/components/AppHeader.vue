@@ -51,7 +51,7 @@
 export default {
   data() {
     return {
-      visibleMenu: true,
+      visibleMenu: false,
     };
   },
   methods: {
@@ -64,6 +64,10 @@ export default {
 
 <style scoped>
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   min-height: var(--header-height);
   display: flex;
   background-color: gray;
