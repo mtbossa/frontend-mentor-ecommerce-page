@@ -28,6 +28,7 @@ export default {};
   font-weight: 700;
   font-size: 1rem;
   border-radius: 10px;
+  line-height: 0;
 }
 
 .app-button--orange {
