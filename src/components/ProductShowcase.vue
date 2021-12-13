@@ -6,23 +6,19 @@
       alt=""
     />
 
-    <div
-      class="product-showcase__button product-showcase__button--previous"
+    <button
+      class="button-icon product-showcase__button product-showcase__button--previous"
       @click="previousImage"
     >
-      <button class="button-icon">
-        <img src="@/assets/images/icon-previous.svg" alt="Previous" />
-      </button>
-    </div>
+      <img src="@/assets/images/icon-previous.svg" alt="Previous" />
+    </button>
 
-    <div
-      class="product-showcase__button product-showcase__button--next"
+    <button
+      class="button-icon product-showcase__button product-showcase__button--next"
       @click="nextImage"
     >
-      <button class="button-icon">
-        <img src="@/assets/images/icon-next.svg" alt="Next" />
-      </button>
-    </div>
+      <img src="@/assets/images/icon-next.svg" alt="Next" />
+    </button>
 
     <!-- ou div com background image -->
     <div></div>
