@@ -74,7 +74,7 @@ export default {
 .product-info__discount {
   color: var(--color-primary-orange);
   padding: 0.3rem 0.6rem;
-  border-radius: 10px;
+  border-radius: var(--border-radius-size);
   font-weight: 700;
   background-color: var(--color-primary-pale-orange);
 }

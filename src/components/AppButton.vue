@@ -27,7 +27,7 @@ export default {};
   cursor: pointer;
   font-weight: 700;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: var(--border-radius-size);
   line-height: 0;
 }
 

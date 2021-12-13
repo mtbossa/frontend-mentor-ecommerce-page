@@ -41,6 +41,6 @@ export default {
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-light-grayish-blue);
-  border-radius: 10px;
+  border-radius: var(--border-radius-size);
 }
 </style>
