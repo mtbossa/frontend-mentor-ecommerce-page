@@ -6,13 +6,19 @@
       alt=""
     />
 
-    <div class="product-showcase__button product-showcase__button--previous">
+    <div
+      class="product-showcase__button product-showcase__button--previous"
+      @click="previousImage"
+    >
       <button class="button-icon">
         <img src="@/assets/images/icon-previous.svg" alt="Previous" />
       </button>
     </div>
 
-    <div class="product-showcase__button product-showcase__button--next">
+    <div
+      class="product-showcase__button product-showcase__button--next"
+      @click="nextImage"
+    >
       <button class="button-icon">
         <img src="@/assets/images/icon-next.svg" alt="Next" />
       </button>
@@ -24,7 +30,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    previousImage() {
+      console.log("previous");
+    },
+    nextImage() {
+      console.log("next");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -43,6 +58,7 @@ export default {};
   align-items: center;
   justify-content: center;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .product-showcase__button--previous {
@@ -56,5 +72,4 @@ export default {};
 .button-icon > img {
   width: 8px;
 }
-
 </style>
