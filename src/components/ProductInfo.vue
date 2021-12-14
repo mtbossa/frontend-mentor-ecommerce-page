@@ -22,6 +22,7 @@
 <script>
 import QuantityInput from "@/components/QuantityInput";
 import AppButton from "@/components/AppButton";
+
 export default {
   components: { QuantityInput, AppButton },
   props: {

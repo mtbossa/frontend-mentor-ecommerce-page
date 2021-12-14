@@ -5,7 +5,7 @@
 
   <ProductInfo :product="product" />
 
-  <AppCart v-if="cartOpen" />
+  <AppCart v-if="cartOpen" :cart="cart" />
 
   <div class="attribution">
     Challenge by
@@ -27,7 +27,7 @@ export default {
   components: { AppHeader, ProductShowcase, ProductInfo, AppCart },
   data() {
     return {
-      cartOpen: true,
+      cartOpen: false,
       product: {
         name: "Fall Limited Edition Sneakers",
         description:
@@ -35,8 +35,22 @@ export default {
         price: 250.0,
         discount: 50,
         manufacturer: "Sneaker Company",
+        mainThumbnail: "../assets/images/image-product-1-thumbnail.jpg",
       },
-      cart: {},
+      cart: [
+        {
+          name: "Fall Limited Edition Sneakers",
+          quantity: 1,
+          price: 250 * 0.5,
+          mainThumbnail: "../assets/images/image-product-1-thumbnail.jpg",
+        },
+        {
+          name: "Fall Limited Edition Sneakers",
+          quantity: 2,
+          price: 250 * 0.5,
+          mainThumbnail: "../assets/images/image-product-1-thumbnail.jpg",
+        },
+      ],
     };
   },
   methods: {

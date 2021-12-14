@@ -4,15 +4,18 @@
       <p class="cart__title">Cart</p>
     </div>
     <div class="cart__divider"></div>
-    <div
-      v-if="!cartEmpty"
-      class="cart__item-container padding-x--small padding-y--small"
-    >
-      <CartItem />
-      <CartItem />
+    <div v-if="Object.keys(cart).length">
+      <div
+        v-for="(product, index) in cart"
+        :key="index"
+        class="cart__item-container padding-x--small padding-y--small"
+      >
+        <CartItem :product="product" />
+      </div>
     </div>
+
     <div
-      v-if="cartEmpty"
+      v-if="!Object.keys(cart).length"
       class="cart__item-container-empty padding-x--small padding-y--small"
     >
       <p class="cart__empty">Your cart is empty</p>
@@ -25,10 +28,13 @@ import CartItem from "@/components/CartItem";
 
 export default {
   components: { CartItem },
-  data() {
-    return {
-      cartEmpty: true,
-    };
+  props: {
+    cart: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
   },
 };
 </script>

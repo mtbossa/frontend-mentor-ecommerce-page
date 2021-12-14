@@ -3,13 +3,14 @@
     <div class="cart-item__info-container">
       <img
         class="cart-item__image"
-        src="../assets/images/image-product-1-thumbnail.jpg"
+        :src="getImgUrl('image-product-1-thumbnail.jpg')"
         alt="Product"
       />
       <div class="cart-item__info">
-        <p class="cart-item__name">Autum Limited Edition...</p>
+        <p class="cart-item__name">{{ product.name }}</p>
         <p class="cart-item__price">
-          $125.00 x 3 <span class="cart-item__total">$375.00</span>
+          ${{ product.price }} x {{ product.quantity }}
+          <span class="cart-item__total">${{ totalValue }}</span>
         </p>
       </div>
     </div>
@@ -21,7 +22,26 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  computed: {
+    totalValue() {
+      return this.product.price * this.product.quantity;
+    },
+  },
+  methods: {
+    getImgUrl(pic) {
+      return require(`../assets/images/${pic}`);
+    },
+  },
+};
 </script>
 
 <style scoped>
