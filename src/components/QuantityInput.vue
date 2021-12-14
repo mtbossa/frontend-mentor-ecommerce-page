@@ -40,6 +40,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 3.5rem;
   background-color: var(--color-light-grayish-blue);
   border-radius: var(--border-radius-size);
 }
