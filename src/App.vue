@@ -1,11 +1,8 @@
 <template>
   <AppHeader @cart-clicked="toggleCart" />
-
-  <ProductShowcase />
-
-  <ProductInfo :product="product" />
-
   <AppCart v-if="cartOpen" :cart="cart" />
+  <ProductShowcase />
+  <ProductInfo :product="product" />
 
   <div class="attribution">
     Challenge by
@@ -35,20 +32,20 @@ export default {
         price: 250.0,
         discount: 50,
         manufacturer: "Sneaker Company",
-        mainThumbnail: "../assets/images/image-product-1-thumbnail.jpg",
+        mainThumbnail: "image-product-1-thumbnail.jpg",
       },
       cart: [
         {
           name: "Fall Limited Edition Sneakers",
           quantity: 1,
           price: 250 * 0.5,
-          mainThumbnail: "../assets/images/image-product-1-thumbnail.jpg",
+          mainThumbnail: "image-product-1-thumbnail.jpg",
         },
         {
           name: "Fall Limited Edition Sneakers",
           quantity: 2,
           price: 250 * 0.5,
-          mainThumbnail: "../assets/images/image-product-1-thumbnail.jpg",
+          mainThumbnail: "image-product-1-thumbnail.jpg",
         },
       ],
     };
