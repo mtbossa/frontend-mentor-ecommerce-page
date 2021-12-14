@@ -35,7 +35,11 @@
       </div>
       <div class="nav__user-container">
         <button class="nav__icon-cart button-icon">
-          <img src="@/assets/images/icon-cart.svg" alt="Cart" />
+          <img
+            src="@/assets/images/icon-cart.svg"
+            alt="Cart"
+            @click="this.$emit('cartClicked')"
+          />
         </button>
         <img
           src="@/assets/images/image-avatar.png"
@@ -71,7 +75,7 @@ export default {
   min-height: var(--header-height);
   display: flex;
   background-color: var(--color-white);
-  z-index: 100;
+  z-index: 120;
 }
 
 .nav {

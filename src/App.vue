@@ -1,9 +1,11 @@
 <template>
-  <AppHeader />
+  <AppHeader @cart-clicked="toggleCart" />
 
   <ProductShowcase />
 
-  <ProductInfo />
+  <ProductInfo :product="product" />
+
+  <AppCart v-if="cartOpen" />
 
   <div class="attribution">
     Challenge by
@@ -18,10 +20,30 @@
 import AppHeader from "@/components/AppHeader";
 import ProductShowcase from "@/components/ProductShowcase";
 import ProductInfo from "@/components/ProductInfo";
+import AppCart from "@/components/AppCart";
 
 export default {
   name: "App",
-  components: { AppHeader, ProductShowcase, ProductInfo },
+  components: { AppHeader, ProductShowcase, ProductInfo, AppCart },
+  data() {
+    return {
+      cartOpen: true,
+      product: {
+        name: "Fall Limited Edition Sneakers",
+        description:
+          "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+        price: 250.0,
+        discount: 50,
+        manufacturer: "Sneaker Company",
+      },
+      cart: {},
+    };
+  },
+  methods: {
+    toggleCart() {
+      this.cartOpen = !this.cartOpen;
+    },
+  },
 };
 </script>
 
@@ -35,7 +57,6 @@ body {
   font-size: var(--font-size);
   color: var(--color-black);
 }
-
 .container {
   margin: 0rem 2rem;
 }

@@ -1,19 +1,17 @@
 <template>
   <article class="product-info container">
-    <h3 class="product-info__producer-name">Sneaker Company</h3>
-    <h1 class="product-info__name">Fall Limited Edition Sneakers</h1>
+    <h3 class="product-info__producer-name">{{ product.manufacturer }}</h3>
+    <h1 class="product-info__name">{{ product.name }}</h1>
     <p class="product-info__description">
-      These low-profile sneakers are your perfect casual wear companion.
-      Featuring a durable rubber outer sole, they’ll withstand everything the
-      weather can offer.
+      {{ product.description }}
     </p>
     <div class="product-info__price-container">
       <div class="product-info__current-price-container">
-        <h2 class="product-info__current-price">$125.00</h2>
-        <div class="product-info__discount">50%</div>
+        <h2 class="product-info__current-price">${{ productRealPrice }}</h2>
+        <div class="product-info__discount">{{ product.discount }}%</div>
       </div>
 
-      <h4 class="product-info__old-price">$250.00</h4>
+      <h4 class="product-info__old-price">${{ product.price }}</h4>
     </div>
 
     <QuantityInput />
@@ -26,6 +24,19 @@ import QuantityInput from "@/components/QuantityInput";
 import AppButton from "@/components/AppButton";
 export default {
   components: { QuantityInput, AppButton },
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
+  computed: {
+    productRealPrice() {
+      return this.product.price * (this.product.discount / 100);
+    },
+  },
 };
 </script>
 
