@@ -1,16 +1,37 @@
 <template>
   <button class="app-button app-button--orange padding-y--small">
     <img
+      v-if="icon"
       class="app-button__icon"
-      src="@/assets/images/icon-cart.svg"
-      alt="Cart"
+      :src="getImgUrl(icon)"
+      :alt="alt"
     />
-    Add to cart
+    <slot></slot>
   </button>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    icon: {
+      type: String,
+      default() {
+        return "";
+      },
+    },
+    alt: {
+      type: String,
+      default() {
+        return "";
+      },
+    },
+  },
+  methods: {
+    getImgUrl(pic) {
+      return require(`../assets/images/${pic}`);
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -20,15 +41,13 @@ export default {};
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
-  min-width: 300px;
-  width: 100%;
   max-width: 400px;
+  width: 100%;
   border: none;
   cursor: pointer;
   font-weight: 700;
   font-size: 1rem;
   border-radius: var(--border-radius-size);
-  line-height: 0;
 }
 
 .app-button--orange {
