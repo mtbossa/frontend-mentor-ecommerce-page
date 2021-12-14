@@ -3,7 +3,7 @@
     <div class="cart-item__info-container">
       <img
         class="cart-item__image"
-        :src="getImgUrl('image-product-1-thumbnail.jpg')"
+        :src="getImgUrl(product.mainThumbnail)"
         alt="Product"
       />
       <div class="cart-item__info">
