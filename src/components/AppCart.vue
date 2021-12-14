@@ -4,14 +4,17 @@
       <p class="cart__title">Cart</p>
     </div>
     <div class="cart__divider"></div>
-    <div v-if="Object.keys(cart).length">
-      <div
+
+    <div
+      v-if="Object.keys(cart).length"
+      class="cart__item-container padding-x--small padding-y--small"
+    >
+      <CartItem
         v-for="(product, index) in cart"
         :key="index"
-        class="cart__item-container padding-x--small padding-y--small"
-      >
-        <CartItem :product="product" />
-      </div>
+        :product="product"
+      />
+      <AppButton>Checkout</AppButton>
     </div>
 
     <div
@@ -25,9 +28,10 @@
 
 <script>
 import CartItem from "@/components/CartItem";
+import AppButton from "@/components/AppButton";
 
 export default {
-  components: { CartItem },
+  components: { CartItem, AppButton },
   props: {
     cart: {
       type: Array,
@@ -49,7 +53,7 @@ export default {
   left: 0;
   right: 0;
   z-index: 100;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .cart__title {
