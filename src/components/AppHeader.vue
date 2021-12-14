@@ -38,7 +38,7 @@
           <img
             src="@/assets/images/icon-cart.svg"
             alt="Cart"
-            @click="this.$emit('cartClicked')"
+            @click="$emit('cartClicked')"
           />
         </button>
         <img
@@ -53,6 +53,7 @@
 
 <script>
 export default {
+  emits: ["cartClicked"],
   data() {
     return {
       visibleMenu: false,

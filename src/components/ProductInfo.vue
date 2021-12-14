@@ -14,8 +14,14 @@
       <h4 class="product-info__old-price">${{ product.price }}</h4>
     </div>
 
-    <QuantityInput />
-    <AppButton icon="icon-cart.svg" alt="Cart">Add to Cart</AppButton>
+    <QuantityInput
+      :quantity="quantity"
+      @add-quantity="addQuantity"
+      @remove-quantity="removeQuantity"
+    />
+    <AppButton icon="icon-cart.svg" alt="Cart" @click="addToCart"
+      >Add to Cart</AppButton
+    >
   </article>
 </template>
 
@@ -33,9 +39,30 @@ export default {
       },
     },
   },
+  emits: ["addToCart"],
+  data() {
+    return {
+      quantity: 0,
+    };
+  },
   computed: {
     productRealPrice() {
       return this.product.price * (this.product.discount / 100);
+    },
+  },
+  methods: {
+    addQuantity() {
+      console.log(this.quantity);
+      this.quantity++;
+    },
+    removeQuantity() {
+      console.log(this.quantity);
+      if (this.quantity >= 1) this.quantity--;
+    },
+    addToCart() {
+      this.$emit("addToCart", this.product, this.quantity);
+
+      this.quantity = 0;
     },
   },
 };

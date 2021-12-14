@@ -2,7 +2,7 @@
   <AppHeader @cart-clicked="toggleCart" />
   <AppCart v-if="cartOpen" :cart="cart" />
   <ProductShowcase />
-  <ProductInfo :product="product" />
+  <ProductInfo :product="product" @add-to-cart="addProductToCart" />
 
   <div class="attribution">
     Challenge by
@@ -34,25 +34,27 @@ export default {
         manufacturer: "Sneaker Company",
         mainThumbnail: "image-product-1-thumbnail.jpg",
       },
-      cart: [
-        {
-          name: "Fall Limited Edition Sneakers",
-          quantity: 1,
-          price: 250 * 0.5,
-          mainThumbnail: "image-product-1-thumbnail.jpg",
-        },
-        {
-          name: "Fall Limited Edition Sneakers",
-          quantity: 2,
-          price: 250 * 0.5,
-          mainThumbnail: "image-product-1-thumbnail.jpg",
-        },
-      ],
+      cart: [],
     };
   },
   methods: {
     toggleCart() {
       this.cartOpen = !this.cartOpen;
+    },
+    addProductToCart(product, quantity) {
+      const cartItem = {
+        name: product.name,
+        mainThumbnail: product.mainThumbnail,
+        price: this.getRealPrice(product.price, product.discount),
+        quantity: quantity,
+      };
+
+      console.log(cartItem);
+
+      this.cart = [...this.cart, cartItem];
+    },
+    getRealPrice(price, discount) {
+      return price * (discount / 100);
     },
   },
 };

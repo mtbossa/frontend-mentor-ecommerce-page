@@ -2,7 +2,7 @@
   <div class="quantity-input">
     <button
       class="button-icon padding-x--small padding-y--small"
-      @click="removeQuantity"
+      @click="$emit('removeQuantity')"
     >
       <img src="@/assets/images/icon-minus.svg" alt="Minus" />
     </button>
@@ -10,7 +10,7 @@
     <p>{{ quantity }}</p>
     <button
       class="button-icon padding-x--small padding-y--small"
-      @click="addQuantity"
+      @click="$emit('addQuantity')"
     >
       <img src="@/assets/images/icon-plus.svg" alt="Plus" />
     </button>
@@ -19,19 +19,15 @@
 
 <script>
 export default {
-  data() {
-    return {
-      quantity: 0,
-    };
-  },
-  methods: {
-    addQuantity() {
-      this.quantity++;
-    },
-    removeQuantity() {
-      if (this.quantity >= 1) this.quantity--;
+  props: {
+    quantity: {
+      type: Number,
+      default() {
+        return 0;
+      },
     },
   },
+  emits: ["addQuantity", "removeQuantity"],
 };
 </script>
 
