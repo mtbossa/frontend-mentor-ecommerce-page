@@ -15,7 +15,7 @@
     </div>
 
     <QuantityInput />
-    <AppButton />
+    <AppButton icon="icon-cart.svg" alt="Cart">Add to Cart</AppButton>
   </article>
 </template>
 
