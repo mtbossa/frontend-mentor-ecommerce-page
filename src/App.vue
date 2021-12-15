@@ -1,6 +1,10 @@
 <template>
   <AppHeader @cart-clicked="toggleCart" />
-  <AppCart v-if="cartOpen" :cart="cart" />
+  <AppCart
+    v-if="cartOpen"
+    :cart="cart"
+    @cart-item-deleted="removeFromCart(id)"
+  />
   <ProductShowcase />
   <ProductInfo :product="product" @add-to-cart="addProductToCart" />
 
@@ -26,6 +30,7 @@ export default {
     return {
       cartOpen: false,
       product: {
+        id: 1,
         name: "Fall Limited Edition Sneakers",
         description:
           "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
@@ -41,20 +46,34 @@ export default {
     toggleCart() {
       this.cartOpen = !this.cartOpen;
     },
+
     addProductToCart(product, quantity) {
-      const cartItem = {
-        name: product.name,
-        mainThumbnail: product.mainThumbnail,
-        price: this.getRealPrice(product.price, product.discount),
-        quantity: quantity,
-      };
+      if (quantity < 1) return;
 
-      console.log(cartItem);
+      const item = this.cart.findIndex((x) => x.productId === product.id);
 
-      this.cart = [...this.cart, cartItem];
+      // Means this product is already in the cart
+      if (item !== -1) {
+        this.cart[item].quantity += quantity;
+      } else {
+        const cartItem = {
+          productId: product.id,
+          name: product.name,
+          mainThumbnail: product.mainThumbnail,
+          price: this.getRealPrice(product.price, product.discount),
+          quantity: quantity,
+        };
+
+        this.cart = [...this.cart, cartItem];
+      }
     },
+
     getRealPrice(price, discount) {
       return price * (discount / 100);
+    },
+
+    removeFromCart(id) {
+      this.cart = this.cart.filter((item) => item.id !== id);
     },
   },
 };

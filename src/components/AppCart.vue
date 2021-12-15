@@ -13,6 +13,7 @@
         v-for="(product, index) in cart"
         :key="index"
         :product="product"
+        @cart-item-deleted="$emit('cartItemDeleted', id)"
       />
       <AppButton>Checkout</AppButton>
     </div>
@@ -40,6 +41,7 @@ export default {
       },
     },
   },
+  emits: ["cartItemDeleted"],
 };
 </script>
 

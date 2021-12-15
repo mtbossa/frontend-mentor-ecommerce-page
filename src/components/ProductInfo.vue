@@ -52,11 +52,11 @@ export default {
   },
   methods: {
     addQuantity() {
-      console.log(this.quantity);
+     
       this.quantity++;
     },
     removeQuantity() {
-      console.log(this.quantity);
+   
       if (this.quantity >= 1) this.quantity--;
     },
     addToCart() {

@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <button class="button-icon">
+    <button class="button-icon" @click="$emit('cartItemDeleted', product.id)">
       <img src="../assets/images/icon-delete.svg" alt="Trash" />
     </button>
   </article>
@@ -31,6 +31,7 @@ export default {
       },
     },
   },
+  emits: ["cartItemDeleted"],
   computed: {
     totalValue() {
       return this.product.price * this.product.quantity;
