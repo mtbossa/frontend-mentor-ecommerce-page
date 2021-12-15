@@ -5,7 +5,7 @@
     :cart="cart"
     @cart-item-deleted="removeFromCart(id)"
   />
-  <ProductShowcase />
+  <ProductCarousel :slides="product.images" />
   <ProductInfo :product="product" @add-to-cart="addProductToCart" />
 
   <div class="attribution">
@@ -19,13 +19,13 @@
 
 <script>
 import AppHeader from "@/components/AppHeader";
-import ProductShowcase from "@/components/ProductShowcase";
+import ProductCarousel from "@/components/ProductCarousel";
 import ProductInfo from "@/components/ProductInfo";
 import AppCart from "@/components/AppCart";
 
 export default {
   name: "App",
-  components: { AppHeader, ProductShowcase, ProductInfo, AppCart },
+  components: { AppHeader, ProductCarousel, ProductInfo, AppCart },
   data() {
     return {
       cartOpen: false,
@@ -38,6 +38,24 @@ export default {
         discount: 50,
         manufacturer: "Sneaker Company",
         mainThumbnail: "image-product-1-thumbnail.jpg",
+        images: [
+          {
+            main: "image-product-1.jpg",
+            thumbnail: "image-product-1-thumbnail.jpg",
+          },
+          {
+            main: "image-product-2.jpg",
+            thumbnail: "image-product-2-thumbnail.jpg",
+          },
+          {
+            main: "image-product-3.jpg",
+            thumbnail: "image-product-3-thumbnail.jpg",
+          },
+          {
+            main: "image-product-4.jpg",
+            thumbnail: "image-product-4-thumbnail.jpg",
+          },
+        ],
       },
       cart: [],
     };
