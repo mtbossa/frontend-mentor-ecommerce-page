@@ -1,3 +1,7 @@
 :root {
   --border-radius-size: 10px;
+    
+  --font-size: 16px;
+  
+  --header-height: 4rem;
 }
