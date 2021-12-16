@@ -54,7 +54,7 @@ export default {
   top: var(--header-height);
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 130;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -88,5 +88,13 @@ export default {
   color: var(--color-dark-grayish-blue);
   width: 100%;
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .cart {
+    top: 90px;
+    left: 70vw;
+    max-width: 450px;
+  }
 }
 </style>
