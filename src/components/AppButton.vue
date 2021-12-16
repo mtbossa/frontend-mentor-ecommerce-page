@@ -52,6 +52,7 @@ export default {
 
 .app-button--orange {
   background-color: var(--color-primary-orange);
+  box-shadow: 0 5px 20px 0 hsla(26, 100%, 55%, 0.2);
   color: var(--color-white);
 }
 </style>
