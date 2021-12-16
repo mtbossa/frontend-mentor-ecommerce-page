@@ -20,27 +20,43 @@
 
         <div
           v-if="visibleMenu"
-          class="nav__menu-container nav__menu-container--full-width"
+          class="nav__menu-mobile-container nav__menu-mobile-container--full-width"
         >
-          <div class="nav__menu-container">
-            <ul class="nav__menu" role="list">
-              <li class="nav__link">Collections</li>
-              <li class="nav__link">Men</li>
-              <li class="nav__link">Women</li>
-              <li class="nav__link">About</li>
-              <li class="nav__link">Contact</li>
+          <div class="nav__menu-mobile-container">
+            <ul class="nav__menu-mobile" role="list">
+              <li class="nav__link-mobile">Collections</li>
+              <li class="nav__link-mobile">Men</li>
+              <li class="nav__link-mobile">Women</li>
+              <li class="nav__link-mobile">About</li>
+              <li class="nav__link-mobile">Contact</li>
             </ul>
           </div>
         </div>
+
+        <div class="nav__menu-container">
+          <ul class="nav__menu" role="list">
+            <li class="nav__link">Collections</li>
+            <li class="nav__link">Men</li>
+            <li class="nav__link">Women</li>
+            <li class="nav__link">About</li>
+            <li class="nav__link">Contact</li>
+          </ul>
+        </div>
       </div>
       <div class="nav__user-container">
-        <button class="nav__icon-cart button-icon">
-          <img
-            src="@/assets/images/icon-cart.svg"
-            alt="Cart"
-            @click="$emit('cartClicked')"
-          />
-        </button>
+        <div class="nav__cart">
+          <div v-if="cartProductAmount > 0" class="nav__product-amount">
+            {{ cartProductAmount }}
+          </div>
+          <button class="nav__icon-cart button-icon">
+            <img
+              src="@/assets/images/icon-cart.svg"
+              alt="Cart"
+              @click="$emit('cartClicked')"
+            />
+          </button>
+        </div>
+
         <img
           src="@/assets/images/image-avatar.png"
           alt="User profile photo"
@@ -53,6 +69,12 @@
 
 <script>
 export default {
+  props: {
+    cartProductAmount: {
+      type: Number,
+      default: 0,
+    },
+  },
   emits: ["cartClicked"],
   data() {
     return {
@@ -88,6 +110,7 @@ export default {
 
 .nav__container {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -100,7 +123,13 @@ export default {
   z-index: 100;
 }
 
-.nav__menu-container {
+/* MENU */
+.nav__menu {
+  display: none;
+}
+
+/* MOBILE MENU */
+.nav__menu-mobile-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -110,12 +139,12 @@ export default {
   padding: 0 2rem;
 }
 
-.nav__menu-container--full-width {
+.nav__menu-mobile-container--full-width {
   min-width: 100vw;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.nav__menu {
+.nav__menu-mobile {
   margin: calc(var(--header-height) + 2rem) 0;
   display: flex;
   flex-direction: column;
@@ -123,7 +152,7 @@ export default {
   padding: 0;
 }
 
-.nav__link {
+.nav__link-mobile {
   font-weight: 700;
   cursor: pointer;
 }
@@ -134,7 +163,79 @@ export default {
   gap: 1.55rem;
 }
 
+.nav__cart {
+  position: relative;
+}
+
+.nav__product-amount {
+  background-color: tomato;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  color: var(--color-white);
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  font-weight: 700;
+}
+
 .nav__user-photo {
+  cursor: pointer;
   width: 1.5rem;
+}
+
+.nav__user-photo:hover {
+  box-shadow: 0 0 0 2px var(--color-primary-orange);
+  border-radius: 50%;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    min-height: calc(var(--header-height) + 2rem);
+    border-bottom: 1px solid var(--color-grayish-blue);
+    padding: 2rem 10rem;
+  }
+
+  .nav__menu-container {
+    margin-left: 2rem;
+  }
+
+  .nav__menu {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav__link {
+    color: var(--color-dark-grayish-blue);
+    font-size: 1.125rem;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .nav__link:hover::after {
+    content: "";
+    background-color: var(--color-primary-orange);
+    width: 100%;
+    height: 4px;
+    display: block;
+    position: absolute;
+    border-radius: 5px;
+    top: calc(var(--header-height) + 8px);
+  }
+
+  .nav__icon-open {
+    display: none;
+  }
+
+  .nav__user-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .nav__user-photo {
+    width: 3rem;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <AppHeader @cart-clicked="toggleCart" />
+  <AppHeader :cart-product-amount="cart.length" @cart-clicked="toggleCart" />
   <AppCart
     v-if="cartOpen"
     :cart="cart"
