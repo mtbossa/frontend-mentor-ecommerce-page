@@ -35,11 +35,11 @@
 
         <div class="nav__menu-container">
           <ul class="nav__menu" role="list">
-            <li class="nav__link">Collections</li>
-            <li class="nav__link">Men</li>
-            <li class="nav__link">Women</li>
-            <li class="nav__link">About</li>
-            <li class="nav__link">Contact</li>
+            <li class="nav__link noselect">Collections</li>
+            <li class="nav__link noselect">Men</li>
+            <li class="nav__link noselect">Women</li>
+            <li class="nav__link noselect">About</li>
+            <li class="nav__link noselect">Contact</li>
           </ul>
         </div>
       </div>

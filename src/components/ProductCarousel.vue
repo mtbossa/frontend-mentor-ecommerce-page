@@ -10,10 +10,7 @@
 
     <!-- Mobile button -->
     <button
-      class="
-        button-icon
-        product-carousel__button product-carousel__button--previous
-      "
+      class="button-icon product-carousel__button product-carousel__button--previous"
       @click="previousSlide"
     >
       <img src="@/assets/images/icon-previous.svg" alt="Previous" />
@@ -21,10 +18,7 @@
 
     <!-- Mobile button -->
     <button
-      class="
-        button-icon
-        product-carousel__button product-carousel__button--next
-      "
+      class="button-icon product-carousel__button product-carousel__button--next"
       @click="nextSlide"
     >
       <img src="@/assets/images/icon-next.svg" alt="Next" />
