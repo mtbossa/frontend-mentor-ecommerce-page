@@ -14,14 +14,16 @@
       <h4 class="product-info__old-price">${{ product.price }}</h4>
     </div>
 
-    <QuantityInput
-      :quantity="quantity"
-      @add-quantity="addQuantity"
-      @remove-quantity="removeQuantity"
-    />
-    <AppButton icon="icon-cart.svg" alt="Cart" @click="addToCart"
-      >Add to Cart</AppButton
-    >
+    <div class="product-info__buttons-container">
+      <QuantityInput
+        :quantity="quantity"
+        @add-quantity="addQuantity"
+        @remove-quantity="removeQuantity"
+      />
+      <AppButton icon="icon-cart.svg" alt="Cart" @click="addToCart"
+        >Add to Cart</AppButton
+      >
+    </div>
   </article>
 </template>
 
@@ -52,11 +54,9 @@ export default {
   },
   methods: {
     addQuantity() {
-     
       this.quantity++;
     },
     removeQuantity() {
-   
       if (this.quantity >= 1) this.quantity--;
     },
     addToCart() {
@@ -122,5 +122,22 @@ export default {
   color: var(--color-grayish-blue);
   font-weight: 700;
   text-decoration: line-through;
+}
+
+@media (min-width: 1024px) {
+  .product-info {
+    max-width: 50%;
+  }
+
+  .product-info__price-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-info__buttons-container {
+    display: flex;
+  }
+
+
 }
 </style>

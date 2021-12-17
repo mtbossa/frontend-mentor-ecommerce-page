@@ -39,5 +39,12 @@ export default {
   min-height: 3.5rem;
   background-color: var(--color-light-grayish-blue);
   border-radius: var(--border-radius-size);
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .quantity-input {
+    width: 40%;
+  }
 }
 </style>

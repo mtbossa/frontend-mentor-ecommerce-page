@@ -41,7 +41,6 @@ export default {
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
-  max-width: 500px;
   width: 100%;
   border: none;
   cursor: pointer;

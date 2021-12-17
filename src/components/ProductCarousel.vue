@@ -1,5 +1,5 @@
 <template>
-  <article clas="product-carousel">
+  <article class="product-carousel">
     <CarouselSlide
       v-for="(slide, index) in slides"
       :key="index"
@@ -7,6 +7,8 @@
       :index="index"
       :visible-index="visibleIndex"
     />
+
+    <!-- Mobile button -->
     <button
       class="button-icon product-carousel__button product-carousel__button--previous"
       @click="previousSlide"
@@ -14,6 +16,7 @@
       <img src="@/assets/images/icon-previous.svg" alt="Previous" />
     </button>
 
+    <!-- Mobile button -->
     <button
       class="button-icon product-carousel__button product-carousel__button--next"
       @click="nextSlide"
@@ -21,16 +24,16 @@
       <img src="@/assets/images/icon-next.svg" alt="Next" />
     </button>
 
-    <!-- ou div com background image -->
-    <div></div>
+    <CarouselPreview :slides="slides" />
   </article>
 </template>
 
 <script>
 import CarouselSlide from "./CarouselSlide.vue";
+import CarouselPreview from "./CarouselPreview.vue";
 
 export default {
-  components: { CarouselSlide },
+  components: { CarouselSlide, CarouselPreview },
   props: {
     slides: {
       type: Array,
@@ -91,5 +94,19 @@ export default {
 
 .button-icon > img {
   width: 8px;
+}
+
+@media (min-width: 1024px) {
+  .product-carousel {
+    max-width: 50%;
+  }
+
+  .product-carousel__button--previous {
+    display: none;
+  }
+
+  .product-carousel__button--next {
+    display: none;
+  }
 }
 </style>

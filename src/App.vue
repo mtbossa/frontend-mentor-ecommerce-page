@@ -5,8 +5,11 @@
     :cart="cart"
     @cart-item-deleted="removeFromCart(id)"
   />
-  <ProductCarousel :slides="product.images" />
-  <ProductInfo :product="product" @add-to-cart="addProductToCart" />
+
+  <div class="main-container">
+    <ProductCarousel :slides="product.images" />
+    <ProductInfo :product="product" @add-to-cart="addProductToCart" />
+  </div>
 
   <div class="attribution">
     Challenge by
@@ -118,5 +121,16 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    display: flex;
+    margin-top: calc(var(--header-height) + 3.5rem);
+    padding: 7rem 18rem;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+  }
 }
 </style>
