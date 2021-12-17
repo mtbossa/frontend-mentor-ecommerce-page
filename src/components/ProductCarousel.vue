@@ -98,7 +98,7 @@ export default {
 
 @media (min-width: 1024px) {
   .product-carousel {
-    max-width: 50%;
+    max-width: 4g0%;
   }
 
   .product-carousel__button--previous {

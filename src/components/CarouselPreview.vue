@@ -5,6 +5,7 @@
       :key="index"
       :src="getImgUrl(slide.thumbnail)"
       alt="Product image"
+      class="carousel-preview--selected"
     />
   </div>
 </template>
@@ -43,8 +44,16 @@ export default {
 
   .carousel-preview > img {
     width: 30%;
-    border-radius: 25px;
+    border-radius: 10px;
     cursor: pointer;
+  }
+
+  .carousel-preview > img:hover {
+    opacity: 0.3;
+  }
+
+  .carousel-preview--selected {
+    border: 3px solid var(--color-primary-orange);
   }
 }
 </style>
