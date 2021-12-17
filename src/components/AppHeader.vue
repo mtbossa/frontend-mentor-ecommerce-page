@@ -20,7 +20,9 @@
 
         <div
           v-if="visibleMenu"
-          class="nav__menu-mobile-container nav__menu-mobile-container--full-width"
+          class="
+            nav__menu-mobile-container nav__menu-mobile-container--full-width
+          "
         >
           <div class="nav__menu-mobile-container">
             <ul class="nav__menu-mobile" role="list">
@@ -168,10 +170,10 @@ export default {
 }
 
 .nav__product-amount {
-  background-color: tomato;
+  background-color: var(--color-primary-orange);
   display: inline-block;
   padding: 0 10px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   border-radius: 10px;
   color: var(--color-white);
   position: absolute;
@@ -208,7 +210,7 @@ export default {
 
   .nav__link {
     color: var(--color-dark-grayish-blue);
-    font-size: 1.125rem;
+    font-size: var(--fs-300);
     cursor: pointer;
     position: relative;
   }

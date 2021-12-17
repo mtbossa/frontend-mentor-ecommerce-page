@@ -20,7 +20,11 @@
         @add-quantity="addQuantity"
         @remove-quantity="removeQuantity"
       />
-      <AppButton icon="icon-cart.svg" alt="Cart" @click="addToCart"
+      <AppButton
+        class="app-button--orange-box-shadow"
+        icon="icon-cart.svg"
+        alt="Cart"
+        @click="addToCart"
         >Add to Cart</AppButton
       >
     </div>
@@ -77,13 +81,13 @@ export default {
 
 .product-info__producer-name {
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: var(--fs-300);
   font-weight: 700;
   color: var(--color-primary-orange);
 }
 
 .product-info__name {
-  font-size: 2rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
 }
 
@@ -106,7 +110,7 @@ export default {
 }
 
 .product-info__current-price {
-  font-size: 1.5rem;
+  font-size: var(--fs-600);
   font-weight: 700;
 }
 
@@ -132,7 +136,7 @@ export default {
 
 @media (min-width: 1024px) {
   .product-info {
-    max-width: 50%;
+    max-width: 40%;
   }
 
   .product-info__price-container {
@@ -142,7 +146,7 @@ export default {
 
   .product-info__buttons-container {
     flex-direction: row;
-    gap: 2rem;
+    gap: 1.3rem;
   }
 }
 </style>
