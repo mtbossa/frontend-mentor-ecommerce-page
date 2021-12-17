@@ -20,9 +20,7 @@
 
         <div
           v-if="visibleMenu"
-          class="
-            nav__menu-mobile-container nav__menu-mobile-container--full-width
-          "
+          class="nav__menu-mobile-container nav__menu-mobile-container--full-width"
         >
           <div class="nav__menu-mobile-container">
             <ul class="nav__menu-mobile" role="list">
@@ -200,7 +198,7 @@ export default {
 @media (min-width: 1024px) {
   .header {
     min-height: calc(var(--header-height) + 2rem);
-    border-bottom: 1px solid var(--color-grayish-blue);
+    border-bottom: 1px solid var(--color-light-grayish-blue);
     padding: 2rem 10rem;
   }
 
