@@ -1,17 +1,21 @@
 <template>
   <div class="carousel-preview">
-    <img
+    <PreviewImage
       v-for="(slide, index) in slides"
       :key="index"
       :src="getImgUrl(slide.thumbnail)"
-      alt="Product image"
-      class="carousel-preview--selected"
+      :index="index"
+      :visible-index="visibleIndex"
+      @click="$emit('previewClicked', index)"
     />
   </div>
 </template>
 
 <script>
+import PreviewImage from "./PreviewImage.vue";
+
 export default {
+  components: { PreviewImage },
   props: {
     slides: {
       type: Array,
@@ -19,7 +23,14 @@ export default {
         return [];
       },
     },
+    visibleIndex: {
+      type: Number,
+      default() {
+        return 0;
+      },
+    },
   },
+  emits: ["previewClicked"],
   methods: {
     getImgUrl(pic) {
       return require(`../assets/images/${pic}`);
@@ -40,20 +51,6 @@ export default {
     justify-content: space-between;
     gap: 3rem;
     margin-top: 3rem;
-  }
-
-  .carousel-preview > img {
-    width: 30%;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-
-  .carousel-preview > img:hover {
-    opacity: 0.3;
-  }
-
-  .carousel-preview--selected {
-    border: 3px solid var(--color-primary-orange);
   }
 }
 </style>

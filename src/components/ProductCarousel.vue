@@ -10,7 +10,10 @@
 
     <!-- Mobile button -->
     <button
-      class="button-icon product-carousel__button product-carousel__button--previous"
+      class="
+        button-icon
+        product-carousel__button product-carousel__button--previous
+      "
       @click="previousSlide"
     >
       <img src="@/assets/images/icon-previous.svg" alt="Previous" />
@@ -18,13 +21,20 @@
 
     <!-- Mobile button -->
     <button
-      class="button-icon product-carousel__button product-carousel__button--next"
+      class="
+        button-icon
+        product-carousel__button product-carousel__button--next
+      "
       @click="nextSlide"
     >
       <img src="@/assets/images/icon-next.svg" alt="Next" />
     </button>
 
-    <CarouselPreview :slides="slides" />
+    <CarouselPreview
+      :slides="slides"
+      :visible-index="visibleIndex"
+      @preview-clicked="changeProductImage"
+    />
   </article>
 </template>
 
@@ -60,6 +70,9 @@ export default {
       this.visibleIndex === this.slidesLength - 1
         ? (this.visibleIndex = 0)
         : this.visibleIndex++;
+    },
+    changeProductImage(previewIndex) {
+      this.visibleIndex = previewIndex;
     },
   },
 };
@@ -98,7 +111,7 @@ export default {
 
 @media (min-width: 1024px) {
   .product-carousel {
-    max-width: 4g0%;
+    max-width: 40%;
   }
 
   .product-carousel__button--previous {
