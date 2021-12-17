@@ -22,7 +22,10 @@
           v-if="visibleMenu"
           class="nav__menu-mobile-container nav__menu-mobile-container--full-width"
         >
-          <div class="nav__menu-mobile-container">
+          <div
+            v-click-outside="onClickOutside"
+            class="nav__menu-mobile-container"
+          >
             <ul class="nav__menu-mobile" role="list">
               <li class="nav__link-mobile">Collections</li>
               <li class="nav__link-mobile">Men</li>
@@ -71,7 +74,12 @@
 </template>
 
 <script>
+import vClickOutside from "click-outside-vue3";
+
 export default {
+  directives: {
+    clickOutside: vClickOutside.directive,
+  },
   props: {
     cartProductAmount: {
       type: Number,
@@ -88,6 +96,9 @@ export default {
     showMenu() {
       this.visibleMenu = !this.visibleMenu;
       this.$emit("openMenu");
+    },
+    onClickOutside() {
+      this.visibleMenu = false;
     },
   },
 };
