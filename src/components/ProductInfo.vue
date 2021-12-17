@@ -124,6 +124,12 @@ export default {
   text-decoration: line-through;
 }
 
+.product-info__buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 @media (min-width: 1024px) {
   .product-info {
     max-width: 50%;
@@ -135,7 +141,8 @@ export default {
   }
 
   .product-info__buttons-container {
-    display: flex;
+    flex-direction: row;
+    gap: 2rem;
   }
 }
 </style>

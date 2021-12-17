@@ -110,6 +110,7 @@ body {
   background-color: var(--color-white);
   color: var(--color-black);
 }
+
 .container {
   margin: 0rem 2rem;
 }
@@ -130,7 +131,7 @@ body {
     padding: 7rem 18rem;
     align-items: center;
     justify-content: center;
-    gap: 7rem;
+    gap: 6rem;
   }
 }
 </style>
