@@ -6,6 +6,7 @@
   />
   <AppCart
     v-if="cartOpen"
+    v-click-outside="onClickOutside"
     :cart="cart"
     @cart-item-deleted="removeFromCart(id)"
   />
@@ -29,10 +30,14 @@ import AppHeader from "@/components/AppHeader";
 import ProductCarousel from "@/components/ProductCarousel";
 import ProductInfo from "@/components/ProductInfo";
 import AppCart from "@/components/AppCart";
+import vClickOutside from "click-outside-vue3";
 
 export default {
   name: "App",
   components: { AppHeader, ProductCarousel, ProductInfo, AppCart },
+  directives: {
+    clickOutside: vClickOutside.directive,
+  },
   data() {
     return {
       cartOpen: false,
@@ -70,6 +75,10 @@ export default {
   methods: {
     toggleCart() {
       this.cartOpen = !this.cartOpen;
+    },
+
+    onClickOutside() {
+      this.cartOpen = false;
     },
 
     addProductToCart(product, quantity) {
