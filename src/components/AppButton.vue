@@ -54,4 +54,8 @@ export default {
   box-shadow: 0 5px 20px 0 hsla(26, 100%, 55%, 0.2);
   color: var(--color-white);
 }
+
+.app-button--orange:hover {
+  background-color: rgb(255, 172, 108);
+}
 </style>
