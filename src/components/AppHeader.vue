@@ -47,7 +47,10 @@
       </div>
       <div class="nav__user-container">
         <div class="nav__cart">
-          <div v-if="cartProductAmount > 0" class="nav__product-amount">
+          <div
+            v-if="cartProductAmount > 0"
+            class="nav__product-amount noselect"
+          >
             {{ cartProductAmount }}
           </div>
           <button class="nav__icon-cart button-icon">
@@ -77,7 +80,7 @@ export default {
       default: 0,
     },
   },
-  emits: ["cartClicked"],
+  emits: ["cartClicked", "openMenu"],
   data() {
     return {
       visibleMenu: false,
@@ -86,6 +89,7 @@ export default {
   methods: {
     showMenu() {
       this.visibleMenu = !this.visibleMenu;
+      this.$emit("openMenu");
     },
   },
 };
@@ -139,6 +143,7 @@ export default {
   min-width: 70%;
   background-color: var(--color-white);
   padding: 0 2rem;
+  z-index: 90;
 }
 
 .nav__menu-mobile-container--full-width {
@@ -223,7 +228,7 @@ export default {
     display: block;
     position: absolute;
     border-radius: 5px;
-    top: calc(var(--header-height) + 8px);
+    top: calc(var(--header-height) + 6px);
   }
 
   .nav__icon-open {
