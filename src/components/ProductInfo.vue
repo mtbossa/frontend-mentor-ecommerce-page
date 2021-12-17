@@ -137,7 +137,5 @@ export default {
   .product-info__buttons-container {
     display: flex;
   }
-
-
 }
 </style>

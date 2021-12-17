@@ -1,7 +1,13 @@
 :root {
   --border-radius-size: 10px;
-    
-  --font-size: 16px;
-  
+
   --header-height: 4rem;
+
+  /*  Fonts (numbers convention is the same as font weight numbering convention) */
+  /* Main font size */
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.5rem;
+  --fs-lg: 2rem;
+  
 }

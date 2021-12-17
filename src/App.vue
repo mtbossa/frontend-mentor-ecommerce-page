@@ -103,11 +103,11 @@ export default {
 <style>
 html {
   font-family: "Kumbh Sans", sans-serif;
+  font-size: var(--fs-400);
 }
 
 body {
   background-color: var(--color-white);
-  font-size: var(--font-size);
   color: var(--color-black);
 }
 .container {
@@ -130,7 +130,7 @@ body {
     padding: 7rem 18rem;
     align-items: center;
     justify-content: center;
-    gap: 6rem;
+    gap: 7rem;
   }
 }
 </style>
