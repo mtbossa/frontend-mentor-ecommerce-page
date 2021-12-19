@@ -15,7 +15,7 @@
         :product="product"
         @cart-item-deleted="$emit('cartItemDeleted', id)"
       />
-      <AppButton>Checkout</AppButton>
+      <AppButton class="padding-y--small">Checkout</AppButton>
     </div>
 
     <div
