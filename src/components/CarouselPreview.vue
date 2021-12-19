@@ -7,7 +7,7 @@
       :index="index"
       :visible-index="visibleIndex"
       @click="$emit('previewClicked', index)"
-    />
+    />    
   </div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
-    margin-top: 3rem;
+    margin-top: 3rem;    
   }
 }
 </style>

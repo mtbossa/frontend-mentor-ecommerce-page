@@ -16,6 +16,10 @@
     <ProductInfo :product="product" @add-to-cart="addProductToCart" />
   </div>
 
+  <teleport to="#modals">
+    <CarouselModal :slides="product.images" />
+  </teleport>
+
   <div class="attribution">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
@@ -30,11 +34,18 @@ import AppHeader from "@/components/AppHeader";
 import ProductCarousel from "@/components/ProductCarousel";
 import ProductInfo from "@/components/ProductInfo";
 import AppCart from "@/components/AppCart";
+import CarouselModal from "@/components/Modals/CarouselModal";
 import vClickOutside from "click-outside-vue3";
 
 export default {
   name: "App",
-  components: { AppHeader, ProductCarousel, ProductInfo, AppCart },
+  components: {
+    AppHeader,
+    ProductCarousel,
+    ProductInfo,
+    AppCart,
+    CarouselModal,
+  },
   directives: {
     clickOutside: vClickOutside.directive,
   },
@@ -122,6 +133,15 @@ html {
 body {
   background-color: var(--color-white);
   color: var(--color-black);
+}
+
+#modals {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
 }
 
 .container {
