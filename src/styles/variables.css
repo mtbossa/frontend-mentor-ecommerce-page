@@ -1,0 +1,24 @@
+:root {
+  --border-radius-size: 10px;
+
+  --header-height: 4rem;
+
+  /*  Fonts (numbers convention is the same as font weight numbering convention) */
+  /* Main font size */
+  --fs-300: 0.8rem;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+  --fs-600: 1.5rem;
+  --fs-lg: 2rem;  
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+  :root {
+    --fs-300: 1rem;
+    --fs-400: 1.125rem;
+    --fs-500: 1.2rem;
+    --fs-600: 2rem;
+    --fs-lg: 3rem;  
+  }    
+}
