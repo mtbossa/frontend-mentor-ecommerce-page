@@ -1,5 +1,5 @@
 <template>
-  <button class="app-button app-button--orange">
+  <button class="app-button padding-y--small app-button--orange">
     <img
       v-if="icon"
       class="app-button__icon"

@@ -6,7 +6,7 @@
   />
   <AppCart
     v-if="cartOpen"
-    v-click-outside="onClickOutside"
+    v-click-outside="onClickOutsideCart"
     :cart="cart"
     @cart-item-deleted="removeFromCart(id)"
   />
@@ -98,7 +98,7 @@ export default {
       this.cartOpen = !this.cartOpen;
     },
 
-    onClickOutside() {
+    onClickOutsideCart() {
       this.cartOpen = false;
     },
 
@@ -132,6 +132,8 @@ export default {
     },
 
     openCarouselModal(visibleIndex) {
+      if (window.window.screen.width < 1024) return;
+
       this.imageClickedIndex = visibleIndex;
       this.carouselModalOpen = true;
     },

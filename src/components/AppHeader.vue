@@ -5,7 +5,7 @@
         <button
           v-if="visibleMenu"
           class="nav__icon-close button-icon"
-          @click="showMenu"
+          @click="closeMenu"
         >
           <img src="@/assets/images/icon-close.svg" alt="X" />
         </button>
@@ -22,10 +22,7 @@
           v-if="visibleMenu"
           class="nav__menu-mobile-container nav__menu-mobile-container--full-width"
         >
-          <div
-            v-click-outside="onClickOutside"
-            class="nav__menu-mobile-container"
-          >
+          <div class="nav__menu-mobile-container">
             <ul class="nav__menu-mobile" role="list">
               <li class="nav__link-mobile">Collections</li>
               <li class="nav__link-mobile">Men</li>
@@ -93,11 +90,16 @@ export default {
     };
   },
   methods: {
-    showMenu() {
-      this.visibleMenu = !this.visibleMenu;
+    showMenu(event) {
+      console.log(event);
+      this.visibleMenu = true;
+      console.log("show menu");
       this.$emit("openMenu");
     },
-    onClickOutside() {
+    closeMenu(event) {
+      console.log("close menu");
+      console.log(event);
+
       this.visibleMenu = false;
     },
   },

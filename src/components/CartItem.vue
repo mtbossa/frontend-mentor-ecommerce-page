@@ -50,6 +50,7 @@ export default {
   display: flex;
   gap: 1rem;
   align-items: center;
+  justify-content: space-between;
 }
 
 .cart-item__info-container {
