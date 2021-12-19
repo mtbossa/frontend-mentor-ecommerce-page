@@ -40,7 +40,7 @@ export default {
 <style scoped>
 @media (min-width: 1024px) {
   .carousel-slide {
-    border-radius: 25px;
+    border-radius: var(--border-radius-size);
   }
 }
 </style>

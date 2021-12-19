@@ -1,5 +1,12 @@
 <template>
   <article class="carousel-modal product-carousel">
+    <button
+      class="button-icon product-carousel__button--close"
+      @click="nextSlide"
+    >
+      <img src="@/assets/images/icon-close.svg" alt="Next" />
+    </button>
+
     <div class="product-carousel__container">
       <CarouselSlide
         v-for="(slide, index) in slides"
@@ -9,7 +16,6 @@
         :visible-index="visibleIndex"
       />
 
-      <!-- Mobile button -->
       <button
         class="button-icon product-carousel__button product-carousel__button--previous"
         @click="previousSlide"
@@ -17,7 +23,6 @@
         <img src="@/assets/images/icon-previous.svg" alt="Previous" />
       </button>
 
-      <!-- Mobile button -->
       <button
         class="button-icon product-carousel__button product-carousel__button--next"
         @click="nextSlide"
@@ -104,10 +109,22 @@ export default {
 }
 
 .product-carousel__button--next {
+  position: absolute;
   left: 100%;
 }
 
-.button-icon > img {
+.product-carousel__button--close {
+  position: absolute;
+  top: -8%;
+  right: 0;
+  cursor: pointer;
+}
+
+.product-carousel__button--close > img {
+  width: 20px;
+}
+
+.product-carousel__button > img {
   width: 10px;
 }
 </style>
