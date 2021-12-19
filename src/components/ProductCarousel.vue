@@ -6,6 +6,7 @@
       :image="slide.main"
       :index="index"
       :visible-index="visibleIndex"
+      @click="$emit('productCarouselClick', visibleIndex)"
     />
 
     <!-- Mobile button -->
@@ -46,6 +47,7 @@ export default {
       },
     },
   },
+  emits: ["productCarouselClick"],
   data() {
     return { visibleIndex: 0 };
   },

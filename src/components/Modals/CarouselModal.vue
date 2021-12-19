@@ -1,42 +1,49 @@
 <template>
-  <article class="carousel-modal product-carousel">
-    <button
-      class="button-icon product-carousel__button--close"
-      @click="nextSlide"
-    >
-      <img src="@/assets/images/icon-close.svg" alt="Next" />
-    </button>
-
-    <div class="product-carousel__container">
-      <CarouselSlide
-        v-for="(slide, index) in slides"
-        :key="index"
-        :image="slide.main"
-        :index="index"
+  <div class="modals-container">
+    <article class="carousel-modal product-carousel">
+      <!-- Close button -->
+      <button
+        class="button-icon product-carousel__button--close"
+        @click="$emit('closeProductCarouselModal')"
+      >
+        <img src="@/assets/images/icon-close.svg" alt="Next" />
+      </button>
+      <div class="product-carousel__container">
+        <CarouselSlide
+          v-for="(slide, index) in slides"
+          :key="index"
+          :image="slide.main"
+          :index="index"
+          :visible-index="visibleIndex"
+        />
+        <!-- Previous button -->
+        <button
+          class="
+            button-icon
+            product-carousel__button product-carousel__button--previous
+          "
+          @click="previousSlide"
+        >
+          <img src="@/assets/images/icon-previous.svg" alt="Previous" />
+        </button>
+        <!-- Next button -->
+        <button
+          class="
+            button-icon
+            product-carousel__button product-carousel__button--next
+          "
+          @click="nextSlide"
+        >
+          <img src="@/assets/images/icon-next.svg" alt="Next" />
+        </button>
+      </div>
+      <CarouselPreview
+        :slides="slides"
         :visible-index="visibleIndex"
+        @preview-clicked="changeProductImage"
       />
-
-      <button
-        class="button-icon product-carousel__button product-carousel__button--previous"
-        @click="previousSlide"
-      >
-        <img src="@/assets/images/icon-previous.svg" alt="Previous" />
-      </button>
-
-      <button
-        class="button-icon product-carousel__button product-carousel__button--next"
-        @click="nextSlide"
-      >
-        <img src="@/assets/images/icon-next.svg" alt="Next" />
-      </button>
-    </div>
-
-    <CarouselPreview
-      :slides="slides"
-      :visible-index="visibleIndex"
-      @preview-clicked="changeProductImage"
-    />
-  </article>
+    </article>
+  </div>
   <!-- <ProductCarousel class="carousel-modal" :slides="slides" /> -->
 </template>
 
@@ -53,7 +60,14 @@ export default {
         return [];
       },
     },
+    openedImageIndex: {
+      type: Number,
+      default() {
+        return 0;
+      },
+    },
   },
+  emits: ["closeProductCarouselModal"],
   data() {
     return { visibleIndex: 0 };
   },
@@ -61,6 +75,9 @@ export default {
     slidesLength() {
       return this.slides.length;
     },
+  },
+  mounted() {
+    this.visibleIndex = this.openedImageIndex;
   },
   methods: {
     previousSlide() {
@@ -81,6 +98,15 @@ export default {
 </script>
 
 <style scoped>
+.modals-container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+}
+
 .carousel-modal {
   position: absolute;
   width: 28%;

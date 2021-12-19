@@ -12,12 +12,20 @@
   />
 
   <div class="main-container">
-    <ProductCarousel :slides="product.images" />
+    <ProductCarousel
+      :slides="product.images"
+      @product-carousel-click="openCarouselModal"
+    />
     <ProductInfo :product="product" @add-to-cart="addProductToCart" />
   </div>
 
   <teleport to="#modals">
-    <CarouselModal :slides="product.images" />
+    <CarouselModal
+      v-if="carouselModalOpen"
+      :slides="product.images"
+      :opened-image-index="imageClickedIndex"
+      @close-product-carousel-modal="carouselModalOpen = !carouselModalOpen"
+    />
   </teleport>
 
   <div class="attribution">
@@ -52,6 +60,8 @@ export default {
   data() {
     return {
       cartOpen: false,
+      carouselModalOpen: false,
+      imageClickedIndex: 0,
       product: {
         id: 1,
         name: "Fall Limited Edition Sneakers",
@@ -120,6 +130,11 @@ export default {
     removeFromCart(id) {
       this.cart = this.cart.filter((item) => item.id !== id);
     },
+
+    openCarouselModal(visibleIndex) {
+      this.imageClickedIndex = visibleIndex;
+      this.carouselModalOpen = true;
+    },
   },
 };
 </script>
@@ -133,15 +148,6 @@ html {
 body {
   background-color: var(--color-white);
   color: var(--color-black);
-}
-
-#modals {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 2000;
 }
 
 .container {

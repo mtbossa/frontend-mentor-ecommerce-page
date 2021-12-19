@@ -41,6 +41,7 @@ export default {
 @media (min-width: 1024px) {
   .carousel-slide {
     border-radius: var(--border-radius-size);
+    cursor: pointer;
   }
 }
 </style>
